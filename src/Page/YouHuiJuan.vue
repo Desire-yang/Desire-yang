@@ -13,7 +13,7 @@
   </div>
         <div class="xiala">
       <div style="margin-top: 15px;">
-    <el-select v-model="select" slot="prepend" placeholder="全部类型">
+    <el-select v-model="select" slot="prepend" placeholder="全部状态">
       <el-option label="全部类型" value="1"></el-option>
       <el-option label="会员充值" value="2"></el-option>
       <el-option label="商家充值" value="3"></el-option>
@@ -25,7 +25,44 @@
 
       </div>
 
-   <Daohang></Daohang>
+  <div class="daohang">
+<el-col :span="12">
+    <el-menu
+      default-active="2"
+      class="el-menu-vertical-demo"
+      @open="handleOpen"
+      @close="handleClose"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b">
+        <template slot="title">
+          <span>导航栏</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="1-1">会员列表</el-menu-item>
+          <el-menu-item index="1-2">充值设置</el-menu-item>
+           <el-menu-item index="1-1">积分设置</el-menu-item>
+          <el-menu-item index="1-2">充值记录</el-menu-item>
+           <el-menu-item index="1-1">消费记录</el-menu-item>
+          <el-menu-item index="1-2">优惠券管理</el-menu-item>
+           <el-menu-item index="1-1">商品列表</el-menu-item>
+          <el-menu-item index="1-2">商品分类</el-menu-item>
+           <el-menu-item index="1-1">商品订单</el-menu-item>
+          <el-menu-item index="1-2">客房订单</el-menu-item>
+           <el-menu-item index="1-1">住宿记录</el-menu-item>
+          <el-menu-item index="1-2">房态管理</el-menu-item>
+           <el-menu-item index="1-1">房型管理</el-menu-item>
+          <el-menu-item index="1-2">房号管理</el-menu-item>
+           <el-menu-item index="1-1">投诉建议</el-menu-item>
+          <el-menu-item index="1-2">管理员列表</el-menu-item>
+           <el-menu-item index="1-1">角色管理</el-menu-item>
+          <el-menu-item index="1-2">微信设置</el-menu-item>
+           <el-menu-item index="1-1">酒店设置</el-menu-item>
+          <el-menu-item index="1-2">其它设置</el-menu-item>
+        </el-menu-item-group>
+    </el-menu>
+  </el-col>
+    </div>
     
        <div class="biaoge">
 <el-table
@@ -33,25 +70,29 @@
       style="width: 100%">
       <el-table-column
         prop="date"
-        label="用户信息"
+        label="优惠券名称"
         width="180">
       </el-table-column>
       <el-table-column
         prop="name"
-        label="消费金额"
+        label="状态"
         width="180">
       </el-table-column>
       <el-table-column
         prop="address"
-        label="消费类型">
+        label="使用门槛">
       </el-table-column>
       <el-table-column
         prop="caozuoyuan"
-        label="操作员">
+        label="发放总量">
       </el-table-column>
       <el-table-column
         prop="caozuo"
-        label="操作">
+        label="已发放数">
+      </el-table-column>
+       <el-table-column
+        prop="shiyong"
+        label="已发放数">
       </el-table-column>
     </el-table>
   </div>
@@ -90,42 +131,37 @@
   </div>
   </template>
 <script>
-import Daohang from './Daohang'
     export default {
-       components:{
- Daohang,
-  },
       data() {
         return {
-          tableData: [{
-            date: '用户昵称-张三',
-            name: '￥100.00',
-            address: '订房',
+            tableData: [{
+            date: '类型：代金券',
+            name: '抵扣金额：10.00元',
+            address: '● 已过期',
+            caozuoyuan:'11',
+            caozuo:'8'
+          }, {
+            date: '类型：折扣券',
+            name: '10元优惠券',
+            address: '● 已过期',
+            caozuoyuan:'张三',
+            caozuo:'操作'
+          }, {
+            date: '3折优惠券',
+            name: '3折优惠券',
+            address: '● 已过期',
+            caozuoyuan:'张三',
+            caozuo:'操作'
+          }, {
+            date: '类型：代金券',
+            name: '5元优惠券',
+            address: '● 已过期',
             caozuoyuan:'张三',
             caozuo:'操作'
           }, {
             date: '用户昵称-张三',
             name: '￥100.00',
-            address: '订房',
-            caozuoyuan:'张三',
-            caozuo:'操作'
-          }, {
-            date: '用户昵称-张三',
-            name: '￥100.00',
-            address: '商品购买',
-            caozuoyuan:'张三',
-            caozuo:'操作'
-          }, {
-            date: '用户昵称-张三',
-            name: '￥100.00',
-            address: '订房',
-            caozuoyuan:'张三',
-            caozuo:'操作'
-            
-          }, {
-            date: '用户昵称-张三',
-            name: '￥100.00',
-            address: '订房',
+            address: '● 已过期',
             caozuoyuan:'张三',
             caozuo:'操作'
           }]
