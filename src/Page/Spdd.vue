@@ -1,12 +1,15 @@
 <template>
     <div>
+      <div>
+
+      </div>
         <div class="bk">
             <p class="xx">全部订单(1000)</p>
-            <p class="qw">待付款1000</p>
-            <p class="q1">待发货1000</p>
-            <p class="q2">已发货1000</p>
-            <p class="q3">已完成1000</p>
-            <p class="q4">已关闭1000</p>
+            <p class="qw">待付款<span class="ybai">100</span></p>
+            <p class="q1">待发货<span class="ybai">10000</span></p>
+            <p class="q2">已发货<span class="ybai">10000</span></p>
+            <p class="q3">已完成<span class="ybai">10000</span></p>
+            <p class="q4">已关闭<span class="ybai">10000</span></p>
         </div>
         <div class="blck">
     <el-date-picker
@@ -19,26 +22,29 @@
       align="right">
     </el-date-picker>
   </div>
-  <div class="top">
-          <el-dropdown>
-  <el-button type="primary">
-    手机号<i class="el-icon-arrow-down el-icon--right"></i>
-  </el-button>
-  <el-dropdown-menu slot="dropdown">
-    <el-dropdown-item>订单编号</el-dropdown-item>
-    <el-dropdown-item>收获人姓名</el-dropdown-item>
-    <el-dropdown-item>收货人电话</el-dropdown-item>
-    <el-dropdown-item>商品货号</el-dropdown-item>
-  </el-dropdown-menu>
-</el-dropdown>
-    </div>
-    <div class="pb">
-      <input type="text" class="login_text" placeholder="请输入搜索内容" />
-    </div>
-    <div class="cx">
-      <button>查询</button>
-    </div>
-    <div>
+ <div class="wenbenqw">
+      <div style="margin-top: 15px; width:300px">
+  <el-input placeholder="请输入搜索内容" v-model="input3" class="input-with-select">
+    <el-select v-model="select" slot="prepend" placeholder="请选择">
+      <el-option label="" value="订单编号"></el-option>
+      <el-option label="收货人姓名" value="2"></el-option>
+      <el-option label="收货人电话" value="3"></el-option>
+      <el-option label="商品货号" value="3"></el-option>
+    </el-select>
+  </el-input>
+</div>
+  </div>
+  <div class="annn">
+    <el-row>
+  <el-button type="warning">查询</el-button>
+</el-row>
+  </div>
+  <div class="dhll">
+<Daohang></Daohang>
+
+  </div>
+
+    <div class="biaog">
         <el-table
     :data="tableData"
     border
@@ -76,6 +82,9 @@
     </el-table-column>
   </el-table>
     </div>
+
+
+
 <div class="block">
     <el-pagination
       @size-change="handleSizeChange"
@@ -90,11 +99,25 @@
     </div>
 </template>
 <style scoped>
+.dhll{
+  margin: -185px 0px 0px 0px;
+}
+.annn{
+  margin: -40px 0px 0px 750px;
+}
+.wenbenqw{
+  margin: -55px 0px 0px 680px;
+}
 .bk{
     width: 150px;
     height: 30px;
-    background-color: blue;
+    background-color: rgb(44, 167, 99);
     color: white;
+    margin: 0px 0px 0px 256px;
+}
+.biaog{
+  margin: -80px 0px 0px 250px;
+  width: 1200px;
 }
 .qw{
     width: 150px;
@@ -138,47 +161,14 @@
     color: rgb(0, 0, 0);
 }
 .blck{
-    margin-left: -1290px;
+    margin-left: -430px;
     margin-top: 30px;
 }
+.ybai{
+  color: red
+}
 </style>
-<script>
-  export default {
-    data() {
-      return {
-        pickerOptions: {
-          shortcuts: [{
-            text: '最近一周',
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-              picker.$emit('pick', [start, end]);
-            }
-          }, {
-            text: '最近一个月',
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-              picker.$emit('pick', [start, end]);
-            }
-          }, {
-            text: '最近三个月',
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-              picker.$emit('pick', [start, end]);
-            }
-          }]
-        },
-        value1: [new Date(2000, 10, 10, 10, 10), new Date(2000, 10, 11, 10, 10)],
-        value2: ''
-      };
-    }
-  };
-</script>
+
 <style scoped>
 .el-dropdown {
   vertical-align: top;
@@ -201,17 +191,13 @@
   margin-top: -20px;
 }
 </style>
+
 <script>
-export default {
-  methods: {
-    handleClick() {
-      alert("button click");
-    },
-  },
-};
-</script>
-<script>
+import Daohang from './Daohang'
   export default {
+         components:{
+ Daohang,
+  },
     methods: {
       handleClick(row) {
         console.log(row);

@@ -1,14 +1,17 @@
 <template>
 <div>
-    
-    <div class="wbkk">
-        <div class="ydong">
+  <div class="wbkks">
+    <div class="ydong">
             <el-form  label-width="80px">
   <el-form-item  label="输入搜索">
       <el-input v-model="input" placeholder="商品名称/商品货号"></el-input>
   </el-form-item>
 </el-form>  
         </div>
+  </div>
+
+    <div class="wbkk">
+        
 
  <div>
       <el-form  label-width="80px">
@@ -59,6 +62,9 @@ width: 260px;
 }
 .ydong{
     margin: 0px 0px 0px 0px;
+}
+.wbkks{
+width: 1000px;
 }
 </style>
 

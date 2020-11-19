@@ -15,20 +15,17 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="1-1">会员列表</el-menu-item>
-          <el-menu-item index="1-2">充值设置</el-menu-item>
            <router-link to="/jifen" tag="el-menu-item" index="1-1">积分设置</router-link>
-          <el-menu-item index="1-2">充值设置</el-menu-item>
           <router-link to="/chongzhi" tag="el-menu-item" index="1-2">充值记录</router-link>
            <router-link to="/xiaofei" tag="el-menu-item" index="1-1">消费记录</router-link>
-          <el-menu-item index="1-2">优惠券管理</el-menu-item>
-           <el-menu-item index="1-1">商品列表</el-menu-item>
-          <el-menu-item index="1-2">商品分类</el-menu-item>
-           <el-menu-item index="1-1">商品订单</el-menu-item>
-          <el-menu-item index="1-2">客房订单</el-menu-item>
+           <router-link to="/shangpinliebiao" tag="el-menu-item" index="1-1">商品列表</router-link>
+          <router-link to="/spfl" tag="el-menu-item" index="1-2">商品分类</router-link>
+           <router-link to="/spdd" tag="el-menu-item" index="1-1">商品订单</router-link>
+          <router-link to="/kfdd" tag="el-menu-item" index="1-2">客房订单</router-link>
            <el-menu-item index="1-1">住宿记录</el-menu-item>
-          <el-menu-item index="1-2">房态管理</el-menu-item>
-           <el-menu-item index="1-1">房型管理</el-menu-item>
-          <el-menu-item index="1-2">房号管理</el-menu-item>
+          <router-link to="/FangTaiGuanLi" tag="el-menu-item" index="1-2">房态管理</router-link>
+          <router-link to="/FangXingGuanLi" tag="el-menu-item" index="1-1">房型管理</router-link>
+          <router-link to="/FangHaoGuanLi" tag="el-menu-item" index="1-2">房号管理</router-link>
            <el-menu-item index="1-1">投诉建议</el-menu-item>
           <el-menu-item index="1-2">管理员列表</el-menu-item>
            <el-menu-item index="1-1">角色管理</el-menu-item>
